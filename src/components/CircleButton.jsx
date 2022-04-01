@@ -1,13 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { string } from 'prop-types';
 
-export default function CircleButton() {
+export default function CircleButton(props) {
+  const { children } = props; // CircleButtonの子要素の抜き出し
   return (
     <View style={styles.circleButton}>
-      <Text style={styles.circleLabel}>+</Text>
+      <Text style={styles.circleLabel}>{children}</Text>
     </View>
   );
 }
+
+CircleButton.propTypes = {
+  children: string.isRequired, // stringを必須項目にする
+};
 
 const styles = StyleSheet.create({
   circleButton: {
